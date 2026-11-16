@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modelo tipo="LOGICO" versao="3.3.2">
+  <tabelas>
+    <tabela id="1" nome="users" x="60" y="50">
+      <campo nome="id" tipo="BIGINT" pk="true" fk="false" nulo="false"/>
+      <campo nome="name" tipo="VARCHAR(255)" pk="false" fk="false" nulo="false"/>
+      <campo nome="email" tipo="VARCHAR(255)" pk="false" fk="false" nulo="false"/>
+      <campo nome="password" tipo="VARCHAR(255)" pk="false" fk="false" nulo="false"/>
+    </tabela>
+    <tabela id="2" nome="clientes" x="60" y="230">
+      <campo nome="id" tipo="BIGINT" pk="true" fk="false" nulo="false"/>
+      <campo nome="nome" tipo="VARCHAR(150)" pk="false" fk="false" nulo="false"/>
+      <campo nome="cpf" tipo="TEXT" pk="false" fk="false" nulo="false"/>
+      <campo nome="telefone" tipo="VARCHAR(20)" pk="false" fk="false" nulo="false"/>
+      <campo nome="email" tipo="VARCHAR(150)" pk="false" fk="false" nulo="true"/>
+    </tabela>
+    <tabela id="3" nome="veiculos" x="480" y="230">
+      <campo nome="id" tipo="BIGINT" pk="true" fk="false" nulo="false"/>
+      <campo nome="cliente_id" tipo="BIGINT" pk="false" fk="true" ref_tabela="clientes" ref_campo="id" nulo="false"/>
+      <campo nome="placa" tipo="VARCHAR(10)" pk="false" fk="false" nulo="false"/>
+      <campo nome="marca" tipo="VARCHAR(80)" pk="false" fk="false" nulo="false"/>
+      <campo nome="modelo" tipo="VARCHAR(80)" pk="false" fk="false" nulo="false"/>
+      <campo nome="ano" tipo="INT" pk="false" fk="false" nulo="false"/>
+    </tabela>
+    <tabela id="4" nome="agendamentos" x="270" y="450">
+      <campo nome="id" tipo="BIGINT" pk="true" fk="false" nulo="false"/>
+      <campo nome="cliente_id" tipo="BIGINT" pk="false" fk="true" ref_tabela="clientes" ref_campo="id" nulo="false"/>
+      <campo nome="veiculo_id" tipo="BIGINT" pk="false" fk="true" ref_tabela="veiculos" ref_campo="id" nulo="false"/>
+      <campo nome="data_agendamento" tipo="DATETIME" pk="false" fk="false" nulo="false"/>
+      <campo nome="descricao_servico" tipo="VARCHAR(255)" pk="false" fk="false" nulo="false"/>
+      <campo nome="status" tipo="ENUM" pk="false" fk="false" nulo="false"/>
+    </tabela>
+  </tabelas>
+</modelo>
